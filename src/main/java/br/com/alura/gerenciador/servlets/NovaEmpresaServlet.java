@@ -25,11 +25,10 @@ public class NovaEmpresaServlet extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Cadastrando nova empresa");
 		
 		String nomeEmpresa = request.getParameter("nome");
 		String dataEmpresa = request.getParameter("data");
-		System.out.println(dataEmpresa);
+		
 		Date dataAbertura;
 		
 		try {
@@ -46,10 +45,14 @@ public class NovaEmpresaServlet extends HttpServlet {
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
 		
-		//chamar o JSP
-		RequestDispatcher rd =  request.getRequestDispatcher("/novaEmpresaCriada.jsp");
+		//Não há barra nesse redirecionamento
 		request.setAttribute("empresa", empresa.getNome());
-		rd.forward(request, response);
+		response.sendRedirect("listaEmpresas");
+		
+//		//chamar o JSP
+//		RequestDispatcher rd =  request.getRequestDispatcher("/listaEmpresas");
+//		request.setAttribute("empresa", empresa.getNome());
+//		rd.forward(request, response);
 	}
 
 }
