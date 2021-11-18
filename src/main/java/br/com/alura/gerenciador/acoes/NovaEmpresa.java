@@ -1,32 +1,21 @@
-package br.com.alura.gerenciador.servlets;
+package br.com.alura.gerenciador.acoes;
 
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.alura.gerenciador.models.Banco;
 import br.com.alura.gerenciador.models.Empresa;
 
-/**
- * Servlet implementation class NovaEmpresaServlet
- */
-@WebServlet(name = "novaEmpresa", urlPatterns = { "/novaEmpresa" })
-public class NovaEmpresaServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class NovaEmpresa {
 
-	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		String nomeEmpresa = request.getParameter("nome");
 		String dataEmpresa = request.getParameter("data");
 		
@@ -48,12 +37,7 @@ public class NovaEmpresaServlet extends HttpServlet {
 		
 		//Não há barra nesse redirecionamento
 		request.setAttribute("empresa", empresa.getNome());
-		response.sendRedirect("listaEmpresas");
-		
-//		//chamar o JSP
-//		RequestDispatcher rd =  request.getRequestDispatcher("/listaEmpresas");
-//		request.setAttribute("empresa", empresa.getNome());
-//		rd.forward(request, response);
+		response.sendRedirect("entrada?acao=ListaEmpresas");
 	}
 
 }

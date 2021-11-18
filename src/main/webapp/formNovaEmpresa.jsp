@@ -9,12 +9,13 @@
 </head>
 <body>
 
-	<c:url value="/novaEmpresa" var="linkServletNovaEmpresa"/>
-	<form action="${linkServletNovaEmpresa}" method="post">
+	<c:url value="/entrada" var="linkEntradaServlet"/>
+	<form action="${linkEntradaServlet }" method="post">
 	
 		Nome: <input type="text" name="nome"/>
 		Data Abertura: <input type="text" name="data"/>
 		
+		<input type="hidden" name="acao" value="NovaEmpresa">
 		<input type="submit">
 	</form>
 </body>

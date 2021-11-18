@@ -9,12 +9,13 @@
 </head>
 <body>
 
-	<c:url value="/alteraEmpresa" var="linkServletNovaEmpresa"/>
-	<form action="${linkServletNovaEmpresa}" method="post">
+	<c:url value="/entrada?acao=AlteraEmpresa" var="linkEntradaServlet"/>
+	<form action="${linkEntradaServlet}" method="post">
 	
 		Nome: <input type="text" name="nome" value="${empresa.nome }"/>
 		Data Abertura: <input type="text" name="data" value="<fmt:formatDate value="${empresa.dataAbertura}" pattern="dd/MM/yyyy"/>"/>
 		<input type="hidden" name="id" value="${empresa.id}">
+		<input type="hidden" name="acao" value="AlteraEmpresa">
 		<input type="submit">
 	</form>
 </body>
