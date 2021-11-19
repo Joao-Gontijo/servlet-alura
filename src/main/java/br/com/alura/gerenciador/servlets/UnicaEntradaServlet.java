@@ -33,7 +33,6 @@ public class UnicaEntradaServlet extends HttpServlet {
 		
 		String nomeClasse = "br.com.alura.gerenciador.acoes." + paramAcao;
 		
-		//Carregar a classe com o nome
 		String nome;
 		try {
 			@SuppressWarnings("rawtypes")
