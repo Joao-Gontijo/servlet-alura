@@ -12,6 +12,9 @@
 <title>Java Standard Taglib</title>
 </head>
 <body>
+
+	Usuario Logado: ${usuarioLogado.login} <br/>
+
 	Lista de empresas: <br/>
 	
 	<ul>
