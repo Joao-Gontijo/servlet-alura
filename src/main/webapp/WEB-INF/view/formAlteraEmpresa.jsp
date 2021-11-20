@@ -8,7 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	
+	<c:import url="logout-parcial.jsp"/>
+	
 	<c:url value="/entrada?acao=AlteraEmpresa" var="linkEntradaServlet"/>
 	<form action="${linkEntradaServlet}" method="post">
 	
