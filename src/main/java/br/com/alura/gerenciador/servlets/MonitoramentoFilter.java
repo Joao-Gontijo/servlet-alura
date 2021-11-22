@@ -9,7 +9,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-@WebFilter("/entrada") //todas as requisições passam no filter antes da servlet
+//@WebFilter("/entrada") //todas as requisições passam no filter antes da servlet
 public class MonitoramentoFilter implements Filter{
 
 	@Override
@@ -17,6 +17,7 @@ public class MonitoramentoFilter implements Filter{
 			throws IOException, ServletException {
 		
 		long antes = System.currentTimeMillis();
+		System.out.println("Monitoramento");
 		
 		//tudo que dá pra fazer na servlet dá pra fazer no filter
 		String acao = request.getParameter("acao");
