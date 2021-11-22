@@ -16,10 +16,8 @@ public class ListaEmpresas implements Acao {
 	
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession sessao = request.getSession();
-		if(sessao.getAttribute("usuarioLogado") == null) {
-			return "redirect:entrada?acao=LoginForm";
-		}
+		//medir tempo de execução
+//		long antes = System.currentTimeMillis();
 		
 		System.out.println("Listando Empresas");
 		
@@ -27,6 +25,10 @@ public class ListaEmpresas implements Acao {
 		List<Empresa> lista = banco.getEmpresas();
 		
 		request.setAttribute("empresas", lista);
+		
+		
+//		long depois = System.currentTimeMillis();
+//		System.out.println("Tempo de execução: " + (depois - antes));
 		
 		return "forward:listaEmpresas.jsp";
 	}
